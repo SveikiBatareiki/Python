@@ -51,7 +51,7 @@ print(add(100))#this means that a = 100, but b is still 10
 print(add())#this means that a is still a = 100, but b is still 10
 print("Done adding")
 
-#print(mult(add(3,5), add(2,1)))
+#print(mult(add(3,5),mult(2,1)))
 
 def greeter(first, last, is_upper=False, add_suffix=""):#mandatory parameters are those, which are not definede already in function
     """
