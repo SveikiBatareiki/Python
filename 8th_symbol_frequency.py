@@ -9,10 +9,10 @@
 # Var būt arī risinājums ar Counter but tas galīgi nav obligāti, lai gan ir ļoti eleganti :)
 
 def get_char_count(text):
-    str_text = str(text)
+    text = str(text)
     counted_list = {}
-    for n in str_text:
-        counted_list[n] = str_text.count(n)
+    for n in text:
+        counted_list[n] = text.count(n)
     return counted_list
 
 counting_input = input("Please input text for counting symbols or numbers:")
