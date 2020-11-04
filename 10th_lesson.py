@@ -75,7 +75,6 @@ class Garage:
         new_nails = self.nails + other.nails
         return Garage(new_color, new_nails)
 
-
 #create new objects based on class definition
 homer_garage = Garage(nails = 33)
 flanders_garage = Garage(nails = 55)
@@ -94,3 +93,30 @@ print(Garage.g_name)
 print(homer_garage + flanders_garage)
 super_garage = homer_garage + flanders_garage
 print(super_garage)
+
+class FancyGarage(Garage):#so we will use all things from old class also
+    g_type = "Fancy"
+    total_travel = 0
+
+    def __init__(self, cars, wines, color = "gold"):
+        super().__init__(color, nails = 2000)
+        self.cars = cars
+        self.wines = wines
+        print("Fancy garage created")
+        self.pretty_print()
+    
+    def pretty_print(self):
+        print("This is pretty garage")
+
+    def drive(self, distance):
+        print(f"Driving {self.cars} a distance of {distance}")
+        self.total_travel += distance
+        return self #allows chaining of objects
+
+    def get_longest_wine(self):
+        wines_lenght = sorted(self.wines, key = len, reverse=True)
+        return wines_lenght
+
+
+burns_garage = FancyGarage("Bentley", ["Rioja", "Tempramillo", "Riesling"])
+burns_garage.add_nails(10).drive(20).drive(5)
