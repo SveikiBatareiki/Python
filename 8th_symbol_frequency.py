@@ -12,7 +12,8 @@ def get_char_count(text):
     text = str(text)
     counted_list = {}
     for n in text:
-        counted_list[n] = text.count(n)
+        #counted_list[n] = text.count(n)# not the most optimal, as each letter is counted one by one in whole list
+        counted_list[n] = counted_list.get(n,0)+1# this is faster
     return counted_list
 
 counting_input = input("Please input text for counting symbols or numbers:")

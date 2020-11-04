@@ -124,3 +124,6 @@ print(my_filtered_dictionary)
 new_dictionary = filter_dictionary(tel, 2640)#searched value is defined
 print(new_dictionary)
 
+food = "kartupelis"
+d = {c:c.upper()*2 for c in food}
+print(d['c'])
