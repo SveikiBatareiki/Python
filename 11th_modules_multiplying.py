@@ -26,10 +26,11 @@ def sum_prod(seq_a, seq_b):
 print(sum_prod([2,3],[5,10,2]))
 
 #1b bonuss
-def sum_prod_bon(*seq):
-    result = 0
-    for i in range (len(seq)):
-        result += math.prod(seq[i])
-    return result
+def sum_prod_bon(*args):
+    # result = 0
+    # for i in range (len(args)):
+    #     result += math.prod(args[i])
+    # return result
+    return sum([math.prod(i) for i in args])
 
 print(sum_prod_bon([2,3],[5,10,2],[3,7,4,7]))
