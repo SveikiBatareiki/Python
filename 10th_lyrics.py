@@ -54,19 +54,44 @@ class Song:
 
     def yell(self, max_lines = -1):
         self.max_lines = max_lines
-        cap_lyrics = [x.upper() for x in self.lyrics]
         if self.title != "":
             print(f"Title is {self.title}")
         if self.author != "":
             print(f"Song author is {self.author}")
         if self.max_lines == -1:
-            for n in range(len(cap_lyrics)):
-                print(cap_lyrics[n])
+            for n in range(len(self.lyrics)):
+                print(*[x.upper() for x in self.lyrics],sep='\n')
         else:    
             for n in range(self.max_lines):
-                print(cap_lyrics[n])
+                print(*[x.upper() for x in self.lyrics],sep='\n')
         return self
+
+    def _print_text(self, lines, max_lines=-1):
+        if self.title != "":
+            print(f"Song name: {self.title}")
+        if self.author != "":
+            print(f"Author: {self.author}")
+        print("----")
+        for num, line in enumerate(lines, 1):
+            if num <= max_lines or max_lines==-1:
+                print(f"{num}: {line}")
+            else:
+                break
+        print("\n")
        
 ziemelmeita = Song("Ziemeļmeita", "Jumprava", ["Gāju meklēt ziemeļmeitu","Garu, tālu ceļu veicu"])
 ziemelmeita.sing(2)
 ziemelmeita.yell(-1).sing(2).yell(1)
+
+class Rap(Song):
+    def __init__(self, title = "", author = "", lyrics = ()):
+        super().__init__(title, author, lyrics)
+    
+    def break_it(self, max_lines= -1, drop = "YAH"):
+        rap_text = [" ".join([f"{word} {drop}" for word in line.split(" ")]) for line in self.lyrics]
+        self._print_text(rap_text,max_lines)
+        return self
+
+my_rap = Rap("My heart will fo on", "Celine Dion", ("You my heart", "You my soul", "Why so long"))
+my_rap.break_it()
+
