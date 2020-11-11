@@ -58,9 +58,8 @@ get_poem_lines("veidenbaums.txt")
 #1c
 
 def save_lines(destpath, lines):
-    with open(destpath, encoding="utf-8") as f:
+    with open(destpath, "w" encoding=encoding) as f:
         for line in lines:
             f.write(lines)
-
-
 #1d
+save_lines("veidenbaums_poems.txt",get_poem_lines("veidenbaums.txt"))#doesn't work
