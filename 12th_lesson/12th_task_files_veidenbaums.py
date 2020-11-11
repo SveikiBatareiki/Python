@@ -33,13 +33,15 @@ import os
 #1a
 def file_line_len(fpath):    
     with open(fpath, encoding="utf-8") as f:
-        line_count = 0
-        filtered_lines = [line.rstrip("\n") for line in f]
-        for line in filtered_lines:
-            line_count +=1
-    return print(line_count)
+    #     line_count = 0
+    #     filtered_lines = [line.rstrip("\n") for line in f]
+    #     for line in filtered_lines:
+    #         line_count +=1
+    #   return print(line_count)
+    #   return print(sum([1 for lines in open(fpath)]))#Reiņa, bet jāpiečinī
+        return len(f.readlines())
     
-file_line_len("veidenbaums.txt")
+print(file_line_len("veidenbaums.txt"))
 
 #1b
 def get_poem_lines(fpath):
@@ -57,7 +59,8 @@ get_poem_lines("veidenbaums.txt")
 
 def save_lines(destpath, lines):
     with open(destpath, encoding="utf-8") as f:
-        f.write(lines)
+        for line in lines:
+            f.write(lines)
 
 
 #1d
